@@ -1,0 +1,10 @@
+Modelo,Fraude detectado,Alertas,Fraudes entre las alertas,Falsas alarmas,Fraudes no detectados,Precisión,IC 95 %
+Léxico (C ajustada),53%,370,358,12,322,0.968,"[0.946, 0.995]"
+Léxico (C ajustada),80%,707,544,163,136,0.769,"[0.570, 0.850]"
+Léxico (C ajustada),90%,1631,612,1019,68,0.375,"[0.302, 0.533]"
+Apilamiento de las cinco capas,50%,357,340,17,340,0.952,"[0.925, 0.984]"
+Apilamiento de las cinco capas,80%,756,544,212,136,0.72,"[0.608, 0.834]"
+Apilamiento de las cinco capas,90%,1452,612,840,68,0.421,"[0.344, 0.546]"
+Forma con árboles,50%,1005,340,665,340,0.338,"[0.266, 0.399]"
+Forma con árboles,80%,2598,544,2054,136,0.209,"[0.180, 0.258]"
+Forma con árboles,90%,3701,612,3089,68,0.165,"[0.126, 0.199]"

@@ -1,0 +1,583 @@
+{
+ "documentos": 14265,
+ "fraudulentos": 680,
+ "campanas": 10300,
+ "campanas_fraude": 506,
+ "principal": {
+  "Tema (solo industria)": {
+   "AUC global": 0.7335,
+   "AUC global inf": 0.7031,
+   "AUC global sup": 0.7628,
+   "AUC dentro de industria": NaN,
+   "AUC dentro de industria inf": NaN,
+   "AUC dentro de industria sup": NaN,
+   "Precisión promedio": 0.1835,
+   "Precisión promedio inf": 0.1464,
+   "Precisión promedio sup": 0.2314,
+   "Caída": NaN,
+   "Caída inf": NaN,
+   "Caída sup": NaN
+  },
+  "Omisión y estructura": {
+   "AUC global": 0.7732,
+   "AUC global inf": 0.7422,
+   "AUC global sup": 0.7974,
+   "AUC dentro de industria": 0.7342,
+   "AUC dentro de industria inf": 0.6873,
+   "AUC dentro de industria sup": 0.7809,
+   "Precisión promedio": 0.1494,
+   "Precisión promedio inf": 0.1257,
+   "Precisión promedio sup": 0.1805,
+   "Caída": 0.039,
+   "Caída inf": -0.0027,
+   "Caída sup": 0.0818
+  },
+  "Léxico": {
+   "AUC global": 0.9731,
+   "AUC global inf": 0.9662,
+   "AUC global sup": 0.9797,
+   "AUC dentro de industria": 0.971,
+   "AUC dentro de industria inf": 0.9601,
+   "AUC dentro de industria sup": 0.9806,
+   "Precisión promedio": 0.8273,
+   "Precisión promedio inf": 0.7911,
+   "Precisión promedio sup": 0.8581,
+   "Caída": 0.0021,
+   "Caída inf": -0.0077,
+   "Caída sup": 0.0125
+  },
+  "Morfosintaxis": {
+   "AUC global": 0.7662,
+   "AUC global inf": 0.7353,
+   "AUC global sup": 0.7911,
+   "AUC dentro de industria": 0.7227,
+   "AUC dentro de industria inf": 0.666,
+   "AUC dentro de industria sup": 0.7719,
+   "Precisión promedio": 0.1283,
+   "Precisión promedio inf": 0.1074,
+   "Precisión promedio sup": 0.1572,
+   "Caída": 0.0436,
+   "Caída inf": 0.0015,
+   "Caída sup": 0.0923
+  },
+  "Sintaxis": {
+   "AUC global": 0.662,
+   "AUC global inf": 0.6141,
+   "AUC global sup": 0.7035,
+   "AUC dentro de industria": 0.6689,
+   "AUC dentro de industria inf": 0.6249,
+   "AUC dentro de industria sup": 0.7115,
+   "Precisión promedio": 0.1145,
+   "Precisión promedio inf": 0.0901,
+   "Precisión promedio sup": 0.1462,
+   "Caída": -0.0069,
+   "Caída inf": -0.0594,
+   "Caída sup": 0.0451
+  },
+  "Semántica": {
+   "AUC global": 0.882,
+   "AUC global inf": 0.8641,
+   "AUC global sup": 0.8991,
+   "AUC dentro de industria": 0.8262,
+   "AUC dentro de industria inf": 0.7847,
+   "AUC dentro de industria sup": 0.8663,
+   "Precisión promedio": 0.3881,
+   "Precisión promedio inf": 0.33,
+   "Precisión promedio sup": 0.4477,
+   "Caída": 0.0558,
+   "Caída inf": 0.02,
+   "Caída sup": 0.0915
+  },
+  "Forma (estructura + gramática + sintaxis)": {
+   "AUC global": 0.8359,
+   "AUC global inf": 0.8107,
+   "AUC global sup": 0.8569,
+   "AUC dentro de industria": 0.8075,
+   "AUC dentro de industria inf": 0.7586,
+   "AUC dentro de industria sup": 0.8462,
+   "Precisión promedio": 0.1994,
+   "Precisión promedio inf": 0.1646,
+   "Precisión promedio sup": 0.2427,
+   "Caída": 0.0284,
+   "Caída inf": -0.0116,
+   "Caída sup": 0.0709
+  },
+  "Todas las capas": {
+   "AUC global": 0.9351,
+   "AUC global inf": 0.9207,
+   "AUC global sup": 0.9476,
+   "AUC dentro de industria": 0.8981,
+   "AUC dentro de industria inf": 0.8619,
+   "AUC dentro de industria sup": 0.9301,
+   "Precisión promedio": 0.6176,
+   "Precisión promedio inf": 0.5542,
+   "Precisión promedio sup": 0.6753,
+   "Caída": 0.0369,
+   "Caída inf": 0.0069,
+   "Caída sup": 0.069
+  }
+ },
+ "fuga": {
+  "Tema (solo industria)": {
+   "AUC simple": 0.7496,
+   "AUC por campañas": 0.7335,
+   "AUC por plantillas": 0.7095,
+   "AP simple": 0.1915,
+   "AP por campañas": 0.1835,
+   "AP por plantillas": 0.1591,
+   "AUC dentro de industria por plantillas": NaN,
+   "Inflación AUC": 0.0401,
+   "Inflación AP": 0.0323
+  },
+  "Omisión y estructura": {
+   "AUC simple": 0.7885,
+   "AUC por campañas": 0.7732,
+   "AUC por plantillas": 0.7589,
+   "AP simple": 0.1626,
+   "AP por campañas": 0.1494,
+   "AP por plantillas": 0.1529,
+   "AUC dentro de industria por plantillas": 0.6936,
+   "Inflación AUC": 0.0296,
+   "Inflación AP": 0.0097
+  },
+  "Léxico": {
+   "AUC simple": 0.9811,
+   "AUC por campañas": 0.9731,
+   "AUC por plantillas": 0.9489,
+   "AP simple": 0.8723,
+   "AP por campañas": 0.8273,
+   "AP por plantillas": 0.7215,
+   "AUC dentro de industria por plantillas": 0.9477,
+   "Inflación AUC": 0.0321,
+   "Inflación AP": 0.1508
+  },
+  "Morfosintaxis": {
+   "AUC simple": 0.781,
+   "AUC por campañas": 0.7662,
+   "AUC por plantillas": 0.7658,
+   "AP simple": 0.1434,
+   "AP por campañas": 0.1283,
+   "AP por plantillas": 0.1297,
+   "AUC dentro de industria por plantillas": 0.7207,
+   "Inflación AUC": 0.0152,
+   "Inflación AP": 0.0137
+  },
+  "Sintaxis": {
+   "AUC simple": 0.6695,
+   "AUC por campañas": 0.662,
+   "AUC por plantillas": 0.6573,
+   "AP simple": 0.1203,
+   "AP por campañas": 0.1145,
+   "AP por plantillas": 0.1122,
+   "AUC dentro de industria por plantillas": 0.6537,
+   "Inflación AUC": 0.0122,
+   "Inflación AP": 0.0081
+  },
+  "Semántica": {
+   "AUC simple": 0.9183,
+   "AUC por campañas": 0.882,
+   "AUC por plantillas": 0.8474,
+   "AP simple": 0.4628,
+   "AP por campañas": 0.3881,
+   "AP por plantillas": 0.3161,
+   "AUC dentro de industria por plantillas": 0.7854,
+   "Inflación AUC": 0.071,
+   "Inflación AP": 0.1467
+  },
+  "Forma (estructura + gramática + sintaxis)": {
+   "AUC simple": 0.8521,
+   "AUC por campañas": 0.8359,
+   "AUC por plantillas": 0.828,
+   "AP simple": 0.2233,
+   "AP por campañas": 0.1994,
+   "AP por plantillas": 0.1995,
+   "AUC dentro de industria por plantillas": 0.7986,
+   "Inflación AUC": 0.0241,
+   "Inflación AP": 0.0238
+  },
+  "Todas las capas": {
+   "AUC simple": 0.9562,
+   "AUC por campañas": 0.9351,
+   "AUC por plantillas": 0.8932,
+   "AP simple": 0.6936,
+   "AP por campañas": 0.6176,
+   "AP por plantillas": 0.5077,
+   "AUC dentro de industria por plantillas": 0.8574,
+   "Inflación AUC": 0.063,
+   "Inflación AP": 0.1858
+  }
+ },
+ "industria_fuera": {
+  "Omisión y estructura": {
+   "Oil & Energy": 0.7605,
+   "Accounting": 0.8596,
+   "Hospital & Health Care": 0.8163,
+   "Marketing and Advertising": 0.7108,
+   "Information Technology and Services": 0.6636,
+   "Promedio": 0.7622
+  },
+  "Léxico": {
+   "Oil & Energy": 0.8015,
+   "Accounting": 0.949,
+   "Hospital & Health Care": 0.7791,
+   "Marketing and Advertising": 0.9855,
+   "Information Technology and Services": 0.916,
+   "Promedio": 0.8862
+  },
+  "Morfosintaxis": {
+   "Oil & Energy": 0.6671,
+   "Accounting": 0.7729,
+   "Hospital & Health Care": 0.6149,
+   "Marketing and Advertising": 0.7531,
+   "Information Technology and Services": 0.7053,
+   "Promedio": 0.7027
+  },
+  "Sintaxis": {
+   "Oil & Energy": 0.5413,
+   "Accounting": 0.5981,
+   "Hospital & Health Care": 0.5502,
+   "Marketing and Advertising": 0.7571,
+   "Information Technology and Services": 0.7031,
+   "Promedio": 0.63
+  },
+  "Semántica": {
+   "Oil & Energy": 0.3807,
+   "Accounting": 0.881,
+   "Hospital & Health Care": 0.7824,
+   "Marketing and Advertising": 0.9197,
+   "Information Technology and Services": 0.711,
+   "Promedio": 0.735
+  },
+  "Forma (estructura + gramática + sintaxis)": {
+   "Oil & Energy": 0.8529,
+   "Accounting": 0.8505,
+   "Hospital & Health Care": 0.7544,
+   "Marketing and Advertising": 0.8529,
+   "Information Technology and Services": 0.7536,
+   "Promedio": 0.8129
+  },
+  "Todas las capas": {
+   "Oil & Energy": 0.7778,
+   "Accounting": 0.9357,
+   "Hospital & Health Care": 0.8475,
+   "Marketing and Advertising": 0.9653,
+   "Information Technology and Services": 0.7933,
+   "Promedio": 0.8639
+  }
+ },
+ "efectos": {
+  "Tiene perfil de empresa": {
+   "grupo": "Estructura",
+   "global": -1.178,
+   "dentro": -1.085,
+   "ic_inf": -1.254,
+   "ic_sup": -0.918,
+   "significativo": true
+  },
+  "Tiene requisitos": {
+   "grupo": "Estructura",
+   "global": -0.129,
+   "dentro": -0.233,
+   "ic_inf": -0.374,
+   "ic_sup": -0.079,
+   "significativo": true
+  },
+  "Tiene prestaciones": {
+   "grupo": "Estructura",
+   "global": -0.109,
+   "dentro": 0.035,
+   "ic_inf": -0.129,
+   "ic_sup": 0.201,
+   "significativo": false
+  },
+  "Palabras (log)": {
+   "grupo": "Estructura",
+   "global": -0.691,
+   "dentro": -0.482,
+   "ic_inf": -0.647,
+   "ic_sup": -0.323,
+   "significativo": true
+  },
+  "Sustantivos": {
+   "grupo": "Morfosintaxis",
+   "global": 0.504,
+   "dentro": 0.341,
+   "ic_inf": 0.236,
+   "ic_sup": 0.468,
+   "significativo": true
+  },
+  "Verbos": {
+   "grupo": "Morfosintaxis",
+   "global": -0.294,
+   "dentro": -0.09,
+   "ic_inf": -0.238,
+   "ic_sup": 0.025,
+   "significativo": false
+  },
+  "Pronombres": {
+   "grupo": "Morfosintaxis",
+   "global": -0.424,
+   "dentro": -0.293,
+   "ic_inf": -0.42,
+   "ic_sup": -0.165,
+   "significativo": true
+  },
+  "your": {
+   "grupo": "Morfosintaxis",
+   "global": -0.023,
+   "dentro": 0.014,
+   "ic_inf": -0.137,
+   "ic_sup": 0.161,
+   "significativo": false
+  },
+  "must": {
+   "grupo": "Morfosintaxis",
+   "global": 0.041,
+   "dentro": 0.097,
+   "ic_inf": -0.05,
+   "ic_sup": 0.254,
+   "significativo": false
+  },
+  "Oraciones sin verbo": {
+   "grupo": "Morfosintaxis",
+   "global": 0.443,
+   "dentro": 0.245,
+   "ic_inf": 0.127,
+   "ic_sup": 0.371,
+   "significativo": true
+  },
+  "Longitud de oración": {
+   "grupo": "Sintaxis",
+   "global": -0.515,
+   "dentro": -0.305,
+   "ic_inf": -0.472,
+   "ic_sup": -0.161,
+   "significativo": true
+  },
+  "Profundidad del árbol": {
+   "grupo": "Sintaxis",
+   "global": -0.543,
+   "dentro": -0.301,
+   "ic_inf": -0.47,
+   "ic_sup": -0.161,
+   "significativo": true
+  },
+  "Subordinadas por oración": {
+   "grupo": "Sintaxis",
+   "global": -0.481,
+   "dentro": -0.315,
+   "ic_inf": -0.436,
+   "ic_sup": -0.181,
+   "significativo": true
+  },
+  "Oraciones con sujeto": {
+   "grupo": "Sintaxis",
+   "global": -0.495,
+   "dentro": -0.27,
+   "ic_inf": -0.397,
+   "ic_sup": -0.162,
+   "significativo": true
+  },
+  "Pago (salary, pay, earn, $...)": {
+   "grupo": "Énfasis",
+   "global": 1.073,
+   "dentro": 0.565,
+   "ic_inf": 0.374,
+   "ic_sup": 0.843,
+   "significativo": true
+  },
+  "Horario (hours, schedule, part-time...)": {
+   "grupo": "Énfasis",
+   "global": 0.79,
+   "dentro": 0.29,
+   "ic_inf": 0.064,
+   "ic_sup": 0.558,
+   "significativo": true
+  },
+  "Tecnología (software, data, web...)": {
+   "grupo": "Énfasis",
+   "global": -0.207,
+   "dentro": 0.02,
+   "ic_inf": -0.094,
+   "ic_sup": 0.098,
+   "significativo": false
+  },
+  "Equipo (team, we, our, culture)": {
+   "grupo": "Énfasis",
+   "global": -0.621,
+   "dentro": -0.239,
+   "ic_inf": -0.371,
+   "ic_sup": -0.082,
+   "significativo": true
+  }
+ },
+ "copias_en_entrenamiento": 0.3559,
+ "plantilla_en_entrenamiento": 0.6412,
+ "grupos_plantilla": 5082,
+ "robustez": {
+  "Omisión y estructura": {
+   "C elegida (por pliegue)": "10, 10, 1, 10, 10",
+   "AUC global": "0.773 [0.742, 0.800]",
+   "AUC dentro de industria": "0.734 [0.689, 0.781]",
+   "Precisión promedio": "0.149 [0.128, 0.186]",
+   "_AUC global": 0.7731850115828444,
+   "_AUC dentro de industria": 0.7342822125275399,
+   "_Precisión promedio": 0.14942869592586963
+  },
+  "Léxico": {
+   "C elegida (por pliegue)": "10, 10, 10, 10, 10",
+   "AUC global": "0.976 [0.970, 0.982]",
+   "AUC dentro de industria": "0.973 [0.963, 0.983]",
+   "Precisión promedio": "0.854 [0.817, 0.881]",
+   "_AUC global": 0.9761346857476889,
+   "_AUC dentro de industria": 0.9731969593066518,
+   "_Precisión promedio": 0.8544835474989453
+  },
+  "Morfosintaxis": {
+   "C elegida (por pliegue)": "0.01, 0.01, 0.01, 0.1, 0.1",
+   "AUC global": "0.766 [0.734, 0.789]",
+   "AUC dentro de industria": "0.721 [0.666, 0.768]",
+   "Precisión promedio": "0.130 [0.107, 0.160]",
+   "_AUC global": 0.7661822078849942,
+   "_AUC dentro de industria": 0.7213913652479682,
+   "_Precisión promedio": 0.12978900525973405
+  },
+  "Sintaxis": {
+   "C elegida (por pliegue)": "0.01, 0.01, 0.01, 0.01, 0.01",
+   "AUC global": "0.665 [0.617, 0.705]",
+   "AUC dentro de industria": "0.671 [0.635, 0.714]",
+   "Precisión promedio": "0.118 [0.091, 0.147]",
+   "_AUC global": 0.664730996557622,
+   "_AUC dentro de industria": 0.6706669390256358,
+   "_Precisión promedio": 0.11763618068720622
+  },
+  "Semántica": {
+   "C elegida (por pliegue)": "0.01, 0.01, 0.01, 0.01, 0.01",
+   "AUC global": "0.902 [0.887, 0.916]",
+   "AUC dentro de industria": "0.838 [0.800, 0.878]",
+   "Precisión promedio": "0.430 [0.376, 0.486]",
+   "_AUC global": 0.9021003918681937,
+   "_AUC dentro de industria": 0.8376059646614238,
+   "_Precisión promedio": 0.43027513145020385
+  },
+  "Forma (estructura + gramática + sintaxis)": {
+   "C elegida (por pliegue)": "0.01, 0.01, 0.01, 0.01, 0.01",
+   "AUC global": "0.838 [0.815, 0.856]",
+   "AUC dentro de industria": "0.808 [0.763, 0.848]",
+   "Precisión promedio": "0.205 [0.170, 0.252]",
+   "_AUC global": 0.8381188161683517,
+   "_AUC dentro de industria": 0.8082276726439733,
+   "_Precisión promedio": 0.20521923437450904
+  },
+  "Apilamiento de las cinco capas": {
+   "C elegida (por pliegue)": "—",
+   "AUC global": "0.980 [0.973, 0.985]",
+   "AUC dentro de industria": "0.978 [0.970, 0.985]",
+   "Precisión promedio": "0.851 [0.812, 0.880]",
+   "_AUC global": 0.9803318972049623,
+   "_AUC dentro de industria": 0.9779681048192946,
+   "_Precisión promedio": 0.8511863677089271
+  },
+  "Forma con árboles (gradient boosting)": {
+   "C elegida (por pliegue)": "—",
+   "AUC global": "0.907 [0.892, 0.921]",
+   "AUC dentro de industria": "0.886 [0.857, 0.916]",
+   "Precisión promedio": "0.382 [0.334, 0.439]",
+   "_AUC global": 0.9068834571001753,
+   "_AUC dentro de industria": 0.8856967769234136,
+   "_Precisión promedio": 0.38206541806250655
+  }
+ },
+ "operacion": [
+  {
+   "Modelo": "Léxico (C ajustada)",
+   "Fraude detectado": "53%",
+   "Alertas": 370,
+   "Fraudes entre las alertas": 358,
+   "Falsas alarmas": 12,
+   "Fraudes no detectados": 322,
+   "Precisión": 0.968,
+   "IC 95 %": "[0.946, 0.995]"
+  },
+  {
+   "Modelo": "Léxico (C ajustada)",
+   "Fraude detectado": "80%",
+   "Alertas": 707,
+   "Fraudes entre las alertas": 544,
+   "Falsas alarmas": 163,
+   "Fraudes no detectados": 136,
+   "Precisión": 0.769,
+   "IC 95 %": "[0.570, 0.850]"
+  },
+  {
+   "Modelo": "Léxico (C ajustada)",
+   "Fraude detectado": "90%",
+   "Alertas": 1631,
+   "Fraudes entre las alertas": 612,
+   "Falsas alarmas": 1019,
+   "Fraudes no detectados": 68,
+   "Precisión": 0.375,
+   "IC 95 %": "[0.302, 0.533]"
+  },
+  {
+   "Modelo": "Apilamiento de las cinco capas",
+   "Fraude detectado": "50%",
+   "Alertas": 357,
+   "Fraudes entre las alertas": 340,
+   "Falsas alarmas": 17,
+   "Fraudes no detectados": 340,
+   "Precisión": 0.952,
+   "IC 95 %": "[0.925, 0.984]"
+  },
+  {
+   "Modelo": "Apilamiento de las cinco capas",
+   "Fraude detectado": "80%",
+   "Alertas": 756,
+   "Fraudes entre las alertas": 544,
+   "Falsas alarmas": 212,
+   "Fraudes no detectados": 136,
+   "Precisión": 0.72,
+   "IC 95 %": "[0.608, 0.834]"
+  },
+  {
+   "Modelo": "Apilamiento de las cinco capas",
+   "Fraude detectado": "90%",
+   "Alertas": 1452,
+   "Fraudes entre las alertas": 612,
+   "Falsas alarmas": 840,
+   "Fraudes no detectados": 68,
+   "Precisión": 0.421,
+   "IC 95 %": "[0.344, 0.546]"
+  },
+  {
+   "Modelo": "Forma con árboles",
+   "Fraude detectado": "50%",
+   "Alertas": 1005,
+   "Fraudes entre las alertas": 340,
+   "Falsas alarmas": 665,
+   "Fraudes no detectados": 340,
+   "Precisión": 0.338,
+   "IC 95 %": "[0.266, 0.399]"
+  },
+  {
+   "Modelo": "Forma con árboles",
+   "Fraude detectado": "80%",
+   "Alertas": 2598,
+   "Fraudes entre las alertas": 544,
+   "Falsas alarmas": 2054,
+   "Fraudes no detectados": 136,
+   "Precisión": 0.209,
+   "IC 95 %": "[0.180, 0.258]"
+  },
+  {
+   "Modelo": "Forma con árboles",
+   "Fraude detectado": "90%",
+   "Alertas": 3701,
+   "Fraudes entre las alertas": 612,
+   "Falsas alarmas": 3089,
+   "Fraudes no detectados": 68,
+   "Precisión": 0.165,
+   "IC 95 %": "[0.126, 0.199]"
+  }
+ ]
+}

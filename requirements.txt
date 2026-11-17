@@ -1,0 +1,18 @@
+# Versiones con las que se ejecutaron los cuadernos (Python 3.11, macOS, Apple M1)
+pandas==3.0.6
+numpy==2.4.2
+scipy==1.17.1
+scikit-learn==1.9.1
+matplotlib==3.10.8
+pyarrow==23.0.1
+nltk==3.9.3
+wordcloud==1.9.6
+spacy==3.8.16
+svgling==0.5.0
+networkx==3.5
+gensim==4.4.0
+torch==2.10.0
+transformers==5.2.0
+sentence-transformers==5.2.3
+kagglehub
+jupyter

@@ -1,0 +1,13 @@
+# Datos: no se redistribuyen (ver scripts/descargar_datos.py)
+DataSet.csv
+corpus_procesado/
+
+# Python / Jupyter
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# macOS
+.DS_Store
