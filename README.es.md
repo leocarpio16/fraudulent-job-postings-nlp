@@ -76,7 +76,7 @@ El proyecto se construyó en seis cuadernos. Cada uno parte de los artefactos de
 | [`03_morfosintaxis`](notebooks/03_morfosintaxis.ipynb) | Morfosintaxis | Etiquetado POS, lematización con WordNet, comparaciones dentro de industria |
 | [`04_sintaxis_dependencias`](notebooks/04_sintaxis_dependencias.ipynb) | Sintaxis | Gramática de constituyentes con expresiones regulares, dependencias con spaCy |
 | [`05_semantica_embeddings`](notebooks/05_semantica_embeddings.ipynb) | Semántica | Word2Vec, FastText, Sentence-BERT, BERT contextual, detección de campañas |
-| [`06_detector_fraude`](notebooks/06_detector_fraude.ipynb) | **Proyecto final: el detector** | Capas de rasgos, CV agrupada, AUC dentro de industria, industria fuera, apilamiento, *gradient boosting* |
+| [`06_detector_fraude`](notebooks/06_detector_fraude.ipynb) | **Proyecto final: el detector** (se lee como el artículo: primero texto, figuras y tablas; todo el código en el Anexo A) | Capas de rasgos, CV agrupada, AUC dentro de industria, industria fuera, apilamiento, *gradient boosting* |
 
 ## Cómo reproducir
 
@@ -92,7 +92,9 @@ Después hay que ejecutar los cuadernos en orden **desde la carpeta `notebooks/`
 
 Los datos no se redistribuyen. Provienen de [Vidros et al. (2017)](https://doi.org/10.3390/fi9010006) y están en Kaggle como [`amruthjithrajvr/recruitment-scam`](https://www.kaggle.com/datasets/amruthjithrajvr/recruitment-scam). El script comprueba el MD5 del archivo.
 
-## Limitaciones
+## Características del estudio y limitaciones
+
+El artículo las presenta al inicio (sección 3.1) para fijar el marco del estudio, y en la sección 7.3 cuantifica el efecto de cada una y propone cómo mitigarla.
 
 - Solo hay 680 ofertas falsas en 506 campañas, así que los resultados por industria son tendencias con intervalos amplios.
 - El 29 % de los anuncios no declara industria, y ese campo lo elige quien publica.

@@ -78,13 +78,13 @@ The project grew over six notebooks. Each one builds on the artefacts of the pre
 | [`03_morfosintaxis`](notebooks/03_morfosintaxis.ipynb) | Morphosyntax | POS tagging, WordNet lemmatisation, within-industry comparisons |
 | [`04_sintaxis_dependencias`](notebooks/04_sintaxis_dependencias.ipynb) | Syntax | Regex constituency grammar, spaCy dependency parsing, tree depth |
 | [`05_semantica_embeddings`](notebooks/05_semantica_embeddings.ipynb) | Semantics | Word2Vec, FastText, Sentence-BERT, contextual BERT, campaign detection |
-| [`06_detector_fraude`](notebooks/06_detector_fraude.ipynb) | **Final project: the detector** | Layered features, grouped CV, within-industry AUC, leave-one-industry-out, stacking, gradient boosting |
+| [`06_detector_fraude`](notebooks/06_detector_fraude.ipynb) | **Final project: the detector** (reads like the paper: text, figures and tables first, all code in Annex A) | Layered features, grouped CV, within-industry AUC, leave-one-industry-out, stacking, gradient boosting |
 
 ```
 ├── notebooks/            # 6 executed notebooks (outputs included)
 │   ├── figuras/          # figures from the final notebook
 │   └── resultados/       # result tables (CSV) and numeros.json with every figure quoted in the paper
-├── paper/                # full write-up in paper format (Spanish)
+├── paper/                # full write-up in paper format (Spanish), code in Annex A
 ├── scripts/descargar_datos.py
 └── requirements.txt
 ```
@@ -105,7 +105,9 @@ Then run the notebooks in order **from inside `notebooks/`**. Notebook 01 writes
 
 The dataset is not redistributed here. It comes from [Vidros et al. (2017)](https://doi.org/10.3390/fi9010006) and is mirrored on Kaggle as [`amruthjithrajvr/recruitment-scam`](https://www.kaggle.com/datasets/amruthjithrajvr/recruitment-scam). The download script checks the file's MD5.
 
-## Limitations
+## Study characteristics and limitations
+
+The paper states these up front (section 3.1) to frame what the study can and cannot claim, and section 7.3 quantifies each one and proposes a mitigation.
 
 - Only 680 fraudulent ads in 506 campaigns, so per-industry results are trends with wide intervals.
 - 29 % of ads have no declared industry, and the industry field is chosen by whoever posts the ad.
