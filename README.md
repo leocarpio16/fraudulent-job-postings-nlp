@@ -85,11 +85,37 @@ The project grew over six notebooks. Each one builds on the artefacts of the pre
 │   ├── figuras/          # figures from the final notebook
 │   └── resultados/       # result tables (CSV) and numeros.json with every figure quoted in the paper
 ├── paper/                # full write-up in paper format (Spanish), code in Annex A
-├── scripts/descargar_datos.py
+├── scripts/            # descargar_datos.py, detector.py (train / score new ads)
+├── modelos/            # trained final detector (.joblib)
+├── ejemplos/           # example ads for the demo
 └── requirements.txt
 ```
 
 All notebooks and the paper are written in Spanish.
+
+## Try the detector
+
+The trained final detector (lexical TF-IDF + logistic regression, C = 10) ships in `modelos/detector_lexico.joblib`, so you can score new ads without running the notebooks:
+
+```bash
+python scripts/detector.py probar --archivo ejemplos/anuncio_sospechoso.txt
+python scripts/detector.py probar --texto "Senior Backend Engineer. We build..."
+python scripts/detector.py probar --csv ejemplos/anuncios.csv   # title, company_profile, description, requirements, benefits
+```
+
+```
+ALERTA ALTA  (puntaje +6.00; en la validación, 97% de los anuncios con este puntaje eran fraude)
+Más sospechoso que el 99.8% de los 14,265 anuncios del corpus. Términos reconocidos: 102
+
+Lo que empuja hacia 'fraudulenta':
+  data entry                   +1.13
+  entry                        +0.67
+  link                         +0.57
+  clerk                        +0.53
+  earn                         +0.45
+```
+
+For each ad it reports an alert level, how it ranks against the corpus, and the terms that pushed the score up or down. The alert thresholds are the ones from Table 8 of the paper (53 % of fraud caught at 0.97 precision, 80 % at 0.77), computed from campaign-grouped cross-validation. `python scripts/detector.py entrenar` retrains it from `corpus_procesado/` in about 40 s and reproduces AUC 0.976 and average precision 0.854. The model only reads English, the example ads in `ejemplos/` are invented for the demo, and the `.joblib` file was saved with scikit-learn 1.9.1.
 
 ## Reproducing
 

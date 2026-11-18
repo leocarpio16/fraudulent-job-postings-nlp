@@ -78,6 +78,18 @@ El proyecto se construyó en seis cuadernos. Cada uno parte de los artefactos de
 | [`05_semantica_embeddings`](notebooks/05_semantica_embeddings.ipynb) | Semántica | Word2Vec, FastText, Sentence-BERT, BERT contextual, detección de campañas |
 | [`06_detector_fraude`](notebooks/06_detector_fraude.ipynb) | **Proyecto final: el detector** (se lee como el artículo: primero texto, figuras y tablas; todo el código en el Anexo A) | Capas de rasgos, CV agrupada, AUC dentro de industria, industria fuera, apilamiento, *gradient boosting* |
 
+## Probar el detector
+
+El detector final ya entrenado (léxico TF-IDF + regresión logística, C = 10) está en `modelos/detector_lexico.joblib`, así que se pueden puntuar anuncios nuevos sin ejecutar los cuadernos:
+
+```bash
+python scripts/detector.py probar --archivo ejemplos/anuncio_sospechoso.txt
+python scripts/detector.py probar --texto "Senior Backend Engineer. We build..."
+python scripts/detector.py probar --csv ejemplos/anuncios.csv   # title, company_profile, description, requirements, benefits
+```
+
+Para cada anuncio da un nivel de alerta, su posición frente al corpus y los términos que subieron o bajaron el puntaje. Los umbrales son los de la Tabla 8 del artículo (53 % del fraude con precisión de 0.97 y 80 % con 0.77), calculados con validación cruzada por campañas. `python scripts/detector.py entrenar` lo vuelve a entrenar desde `corpus_procesado/` en unos 40 s y reproduce el AUC de 0.976 y la precisión promedio de 0.854. El modelo solo lee inglés, los anuncios de `ejemplos/` los inventé para la demostración y el archivo `.joblib` se guardó con scikit-learn 1.9.1.
+
 ## Cómo reproducir
 
 ```bash

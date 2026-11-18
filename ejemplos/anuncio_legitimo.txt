@@ -1,0 +1,5 @@
+Senior Backend Engineer
+Founded in 2009, we build the scheduling platform used by more than 3,000 clinics in Europe. Our engineering team of 40 works across Berlin and London.
+You will design and maintain the services behind our booking API, improve the reliability of our PostgreSQL clusters, and mentor two junior engineers. You will work closely with product managers and designers on the roadmap.
+Requirements: 5+ years of experience with Python or Go, solid understanding of distributed systems, experience with AWS and Kubernetes, and a degree in Computer Science or equivalent experience.
+Benefits: competitive salary, stock options, 28 days of paid vacation, learning budget and private health insurance.
