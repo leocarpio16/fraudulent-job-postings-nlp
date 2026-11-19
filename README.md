@@ -86,12 +86,24 @@ The project grew over six notebooks. Each one builds on the artefacts of the pre
 │   └── resultados/       # result tables (CSV) and numeros.json with every figure quoted in the paper
 ├── paper/                # full write-up in paper format (Spanish), code in Annex A
 ├── scripts/            # descargar_datos.py, detector.py (train / score new ads)
+├── app.py              # Streamlit web app
 ├── modelos/            # trained final detector (.joblib)
 ├── ejemplos/           # example ads for the demo
 └── requirements.txt
 ```
 
 All notebooks and the paper are written in Spanish.
+
+## Web app
+
+A Streamlit interface lets anyone paste an ad and see the verdict, where it ranks against the corpus and which words raised or lowered suspicion (highlighted in the text). It also scores a whole CSV at once.
+
+```bash
+pip install -r requirements.txt
+streamlit run app.py
+```
+
+![Web app showing an alert for a suspicious ad](docs/app.png)
 
 ## Try the detector
 

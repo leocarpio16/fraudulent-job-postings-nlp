@@ -78,6 +78,17 @@ El proyecto se construyó en seis cuadernos. Cada uno parte de los artefactos de
 | [`05_semantica_embeddings`](notebooks/05_semantica_embeddings.ipynb) | Semántica | Word2Vec, FastText, Sentence-BERT, BERT contextual, detección de campañas |
 | [`06_detector_fraude`](notebooks/06_detector_fraude.ipynb) | **Proyecto final: el detector** (se lee como el artículo: primero texto, figuras y tablas; todo el código en el Anexo A) | Capas de rasgos, CV agrupada, AUC dentro de industria, industria fuera, apilamiento, *gradient boosting* |
 
+## Interfaz web
+
+Una interfaz en Streamlit permite pegar un anuncio y ver el resultado, su posición frente al corpus y qué palabras subieron o bajaron la sospecha (resaltadas en el texto). También puntúa un CSV completo.
+
+```bash
+pip install -r requirements.txt
+streamlit run app.py
+```
+
+![Interfaz con una alerta para un anuncio sospechoso](docs/app.png)
+
 ## Probar el detector
 
 El detector final ya entrenado (léxico TF-IDF + regresión logística, C = 10) está en `modelos/detector_lexico.joblib`, así que se pueden puntuar anuncios nuevos sin ejecutar los cuadernos:
