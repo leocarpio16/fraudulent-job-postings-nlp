@@ -2,7 +2,7 @@
 
 **An NLP study on the EMSCAD corpus: a layered linguistic detector, evaluated with controls for industry and for copy-pasted ads.**
 
-[Versión en español](README.es.md) · [Full paper (PDF, Spanish)](paper/articulo_deteccion_fraude_EMSCAD.pdf) · [Final notebook](notebooks/06_detector_fraude.ipynb)
+[Versión en español](README.es.md) · [Full paper (PDF, Spanish)](paper/articulo_deteccion_fraude_EMSCAD.pdf) · [Final notebook](notebooks/06_detector_fraude.ipynb) · [Slides for a general audience (Spanish)](docs/presentacion.pdf)
 
 ![Python](https://img.shields.io/badge/Python-3.11-3776AB) ![scikit-learn](https://img.shields.io/badge/scikit--learn-1.9-F7931E) ![spaCy](https://img.shields.io/badge/spaCy-3.8-09A3D5) ![Sentence Transformers](https://img.shields.io/badge/sentence--transformers-5.2-yellow) ![License: MIT](https://img.shields.io/badge/license-MIT-green)
 

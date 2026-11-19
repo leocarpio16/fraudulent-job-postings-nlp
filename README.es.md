@@ -2,7 +2,7 @@
 
 **Un estudio de PLN sobre el corpus EMSCAD: un detector por capas lingüísticas, evaluado con control de industria y de anuncios copiados.**
 
-[English version](README.md) · [Artículo completo (PDF)](paper/articulo_deteccion_fraude_EMSCAD.pdf) · [Cuaderno final](notebooks/06_detector_fraude.ipynb)
+[English version](README.md) · [Artículo completo (PDF)](paper/articulo_deteccion_fraude_EMSCAD.pdf) · [Cuaderno final](notebooks/06_detector_fraude.ipynb) · [Presentación para todo público](docs/presentacion.pdf)
 
 ---
 
