@@ -48,6 +48,7 @@ ESTILOS = """
 [data-testid="stMarkdownContainer"] p.pc-posicion { font-size: .92rem !important; margin: .9rem 0 0 !important; }
 [data-testid="stMarkdownContainer"] p.pc-sub2 { font-size: .72rem !important; margin: 1.6rem 0 .6rem !important; }
 [data-testid="stMarkdownContainer"] p.pc-pie { font-size: .8rem !important; margin: 1.3rem 0 0 !important; }
+[data-testid="stMarkdownContainer"] p.pc-analizado { font-size: .8rem !important; margin: .5rem 0 0 !important; }
 [data-testid="stMarkdownContainer"] p.pc-seccion { font-size: 1.2rem !important; }
 
 /* Tarjeta oscura del formulario */
@@ -85,8 +86,11 @@ ESTILOS = """
                letter-spacing: .08em; text-transform: uppercase; padding: .3rem .65rem; border-radius: 999px; }
 .pc-veredicto { font-size: 1.5rem; font-weight: 650; color: var(--tinta); margin: .7rem 0 .25rem; line-height: 1.25; }
 .pc-explica { color: var(--tinta-2); margin: 0 0 1.2rem; }
-.pc-medidor { position: relative; height: 10px; border-radius: 999px; margin: 1.6rem 0 .5rem;
-  background: linear-gradient(90deg, #dfe7f1 0%, #dfe7f1 70%, #f6dfc2 85%, #f3c7c2 100%); }
+.pc-medidor { position: relative; height: 10px; border-radius: 999px; margin: 2.3rem 0 .5rem; background: #dfe7f1; }
+.pc-zona { position: absolute; top: 0; bottom: 0; }
+.pc-corte { position: absolute; top: -6px; width: 2px; height: 22px; background: var(--ambar); transform: translateX(-1px); }
+.pc-corte-et { position: absolute; bottom: 18px; transform: translateX(-100%); padding-right: 6px; white-space: nowrap;
+               font-size: .74rem; font-weight: 600; color: var(--ambar); }
 .pc-marca-medidor { position: absolute; top: -7px; width: 4px; height: 24px; background: var(--tinta); border-radius: 2px;
                     transform: translateX(-2px); }
 .pc-escala { display: flex; justify-content: space-between; font-size: .76rem; color: var(--tinta-3); }
@@ -105,6 +109,7 @@ ESTILOS = """
 .pc-aviso { background: var(--ambar-fondo); color: var(--ambar); border-radius: 10px; padding: .7rem .9rem;
             font-size: .88rem; margin-top: 1rem; }
 .pc-pie { color: var(--tinta-3); font-size: .8rem; margin-top: 1.3rem; }
+.pc-analizado { color: var(--tinta-3); font-size: .8rem; margin-top: .5rem; }
 </style>
 """
 
@@ -118,7 +123,12 @@ NIVELES = {
     "baja": ("Sin alerta", "var(--verde)", "var(--verde-fondo)",
              "No encontramos las señales típicas de las ofertas falsas.",
              "Aun así, revisa que la empresa exista antes de enviar tus datos."),
+    "nada": ("Resultado no confiable", "var(--tinta-2)", "#ececf0",
+             "No hay suficiente texto en inglés para decidir.",
+             "El detector reconoció solo {n} palabras o pares de palabras. Pega el anuncio completo, en inglés."),
 }
+# Con menos términos reconocidos que esto (texto muy corto o en otro idioma) el resultado no es confiable.
+MIN_TERMINOS = 20
 
 
 @st.cache_resource
@@ -126,7 +136,9 @@ def detector():
     return joblib.load(MODELO)
 
 
-def clasificar(det, puntaje):
+def clasificar(det, puntaje, n_terminos=MIN_TERMINOS):
+    if n_terminos < MIN_TERMINOS:
+        return "nada", None
     alta, media = det["umbrales"][0.5], det["umbrales"][0.8]
     if puntaje >= alta["umbral"]:
         return "alta", alta["precision"]
@@ -190,14 +202,33 @@ with uno:
         puntaje, n_terminos, hacia_fraude, hacia_legitima = explicar(det, limpiar(texto), n=10)
         hacia_fraude = [(t, v) for t, v in hacia_fraude if v >= MIN_SUBE]
         hacia_legitima = [(t, v) for t, v in hacia_legitima if -v >= MIN_BAJA]
-        clave, precision = clasificar(det, puntaje)
+        clave, precision = clasificar(det, puntaje, n_terminos)
         nombre, color, fondo, veredicto, detalle = NIVELES[clave]
-        if precision is not None:
-            detalle = detalle.format(p=round(precision * 100))
+        detalle = detalle.format(p=round((precision or 0) * 100), n=n_terminos)
         corpus = det["puntajes_corpus"]
-        lugar = np.searchsorted(corpus, puntaje) / len(corpus)
+        def posicion(valor):
+            return np.searchsorted(corpus, valor) / len(corpus)
+        lugar = posicion(puntaje)
         marca = min(max(lugar * 100, 1), 99)
         lugar_txt = f"{lugar:.1%}" if lugar >= 0.99 else f"{lugar:.0%}"
+        # Dónde empiezan las alertas en el medidor (percentil del umbral en el corpus).
+        p_media = posicion(det["umbrales"][0.8]["umbral"]) * 100
+        p_alta = posicion(det["umbrales"][0.5]["umbral"]) * 100
+        medidor = f"""
+  <div class="pc-medidor">
+    <div class="pc-zona" style="left:{p_media:.1f}%;width:{p_alta - p_media:.1f}%;background:#f6dfc2"></div>
+    <div class="pc-zona" style="left:{p_alta:.1f}%;right:0;background:#f3c7c2;border-radius:0 999px 999px 0"></div>
+    <div class="pc-corte" style="left:{p_media:.1f}%"></div>
+    <div class="pc-corte-et" style="left:{p_media:.1f}%">La alerta empieza aquí</div>
+    <div class="pc-marca-medidor" style="left:{marca:.1f}%"></div>
+  </div>
+  <div class="pc-escala"><span>Menos sospechoso</span><span>Más sospechoso</span></div>
+  <p class="pc-posicion">Su nivel de sospecha es más alto que el de <b>{lugar_txt}</b> de los 14,265 anuncios que
+  estudiamos. La alerta se activa a partir del <b>{p_media:.0f} %</b>, porque solo 1 de cada 21 anuncios es falso.</p>"""
+        palabras = texto.split()
+        inicio = escape(" ".join(palabras[:8])) + ("…" if len(palabras) > 8 else "")
+        analizado = (f'<p class="pc-analizado">Texto analizado: {len(palabras)} palabras; el detector reconoció '
+                     f'{n_terminos} términos (palabras o pares de palabras). Empieza con «{inicio}».</p>')
 
         malos = "".join(f'<span class="pc-chip malo">{escape(t)}</span>' for t, _ in hacia_fraude) or \
             '<span class="pc-vacio">Ninguna palabra del anuncio sube mucho la sospecha.</span>'
@@ -205,22 +236,20 @@ with uno:
             '<span class="pc-vacio">Ninguna palabra del anuncio la baja de forma clara.</span>'
         donde = (f'<p class="pc-sub2">Dónde aparecen</p><div class="pc-texto">'
                  f'{resaltar(texto, [t for t, _ in hacia_fraude])}</div>') if hacia_fraude else ""
-        aviso = ('<div class="pc-aviso">El anuncio es muy corto o no está en inglés, así que el resultado es poco '
-                 'confiable. Pega el texto completo en inglés.</div>') if n_terminos < 20 else ""
+        # Sin texto suficiente no se muestran medidor ni palabras: solo qué se analizó.
+        cuerpo = analizado if clave == "nada" else f"""{medidor}
+  {analizado}
+  <p class="pc-sub2">Palabras que suben la sospecha</p>
+  <div class="pc-chips">{malos}</div>
+  <p class="pc-sub2">Palabras que la bajan</p>
+  <div class="pc-chips">{buenos}</div>
+  {donde}"""
         st.markdown(f"""
 <div class="pc-resultado">
   <span class="pc-etiqueta" style="color:{color};background:{fondo}">{nombre}</span>
   <p class="pc-veredicto">{veredicto}</p>
   <p class="pc-explica">{detalle}</p>
-  <div class="pc-medidor"><div class="pc-marca-medidor" style="left:{marca:.1f}%"></div></div>
-  <div class="pc-escala"><span>Menos sospechoso</span><span>Más sospechoso</span></div>
-  <p class="pc-posicion">Su nivel de sospecha es más alto que el de <b>{lugar_txt}</b> de los 14,265 anuncios que estudiamos.</p>
-  {aviso}
-  <p class="pc-sub2">Palabras que suben la sospecha</p>
-  <div class="pc-chips">{malos}</div>
-  <p class="pc-sub2">Palabras que la bajan</p>
-  <div class="pc-chips">{buenos}</div>
-  {donde}
+  {cuerpo}
   <p class="pc-pie">El detector sirve para decidir qué revisar primero; no prueba que un anuncio sea falso. Un empleo
   legítimo de captura de datos o de asistente puede salir con alerta.</p>
 </div>""", unsafe_allow_html=True)
@@ -242,8 +271,9 @@ with varios:
     if archivo is not None:
         tabla = pd.read_csv(archivo)
         textos = tabla.apply(texto_de_campos, axis=1)
-        puntajes = det["modelo"].decision_function(det["vectorizador"].transform(textos))
-        tabla.insert(0, "Resultado", [NIVELES[clasificar(det, p)[0]][0] for p in puntajes])
+        X = det["vectorizador"].transform(textos)
+        puntajes = det["modelo"].decision_function(X)
+        tabla.insert(0, "Resultado", [NIVELES[clasificar(det, p, n)[0]][0] for p, n in zip(puntajes, X.getnnz(axis=1))])
         tabla.insert(1, "Más sospechoso que", [np.searchsorted(det["puntajes_corpus"], p) / len(det["puntajes_corpus"])
                                                for p in puntajes])
         tabla = tabla.sort_values("Más sospechoso que", ascending=False)
